@@ -4,15 +4,7 @@
 
 # TMDB App
 
-<!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
-
-![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
-
-<img src="exemplo-image.png" alt="exemplo imagem">
+<img src="https://github.com/alaeners/ios-trab-final/blob/main/docs_trabalho/brand_do_trabalho.png?raw=true" alt="brand do trabalho">
 
 > Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
 
@@ -36,6 +28,9 @@ GET /movie/{movie_id}
 ```
 
 ## 🚀 TELA INICIAL
+<p align="center">
+    <img src="https://github.com/alaeners/ios-trab-final/blob/main/docs_trabalho/tela_inicial.png?raw=true" height=600px alt="tela inicial trabalho">
+</p>
 
 - *Objetivo:*
 A tela inicial da aplicação com uma lista dos filmes dispostos em duas colunas cada item ocupando metade da tela e com altura da célula de 1.5x da largura. No topo um título na navigation bar
@@ -51,6 +46,9 @@ passando a nova página e manter os itens já carregados.
 ```
 
 ## ☕ TELA DE DETALHES
+<p align="center">
+    <img src="https://github.com/alaeners/ios-trab-final/blob/main/docs_trabalho/tela_detalhes.png?raw=true" height=400px alt="tela de detalhes trabalho">
+</p>
 
 - *Objetivo:*
 Ao clicar em um item da tela inicial iremos abrir uma tela simples, com os detalhes do filme que selecionamos. Essa tela deve exibir o título do filme, a imagem do poster, o ano de lançamento, a popularidade do filme e a descrição do filme.
