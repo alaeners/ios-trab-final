@@ -68,7 +68,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 <table>
   <tr>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/alaeners">
         <img src="https://avatars.githubusercontent.com/u/9036350?v=4" width="100px;" alt="Foto da Alaene no GitHub"/><br>
         <sub>
           <b>Alaene</b>
@@ -76,7 +76,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/GustavoGontijoAntunes">
         <img src="https://avatars.githubusercontent.com/u/51254362?v=4" width="100px;" alt="Foto do Gustavo no GitHub"/><br>
         <sub>
           <b>Gustavo</b>
@@ -84,8 +84,8 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
       </a>
     </td>
     <td align="center">
-      <a href="#">
-        <img src="" width="100px;" alt="Foto do Diego no GitHub"/><br>
+      <a href="https://github.com/dvantunes">
+        <img src="https://avatars.githubusercontent.com/u/54150088?v=4" width="100px;" alt="Foto do Diego no GitHub"/><br>
         <sub>
           <b>Diego</b>
         </sub>
