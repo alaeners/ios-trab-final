@@ -4,3 +4,8 @@ target 'cocoapods' do
    use_frameworks!
 
 end
+
+target 'AlamofireTutorial' do
+   use_frameworks!
+   pod 'Alamofire', '5.0.0-beta.2'
+ end
