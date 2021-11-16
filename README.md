@@ -12,9 +12,18 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- Professor: Jhoney Lopes 
-- PUC Minas
-- Nota: 50 pontos
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="https://github.com/jhoneylopes">
+        <img src="https://avatars.githubusercontent.com/u/3375542?v=4" width="100px;" alt="Foto do Prof. Jhoney no GitHub"/><br>
+        <sub>
+          <b>Prof. Jhoney Lopes - <br>Pós PUC Minas <br>Pontuação: 50 pontos </b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
 
 ## 💻 Pré-requisitos do projeto
