@@ -45,13 +45,19 @@ class ImageComponent: UIView {
     private func setupConstraints() {
         imageComponent
             .widthAnchor
-            .constraint(equalToConstant: imageProps.isDetailsPage ? 24.0 : 48.0)
+            .constraint(equalToConstant: imageProps.isDetailsPage ? ImageConstants.extraLarge : ImageConstants.medium)
             .isActive = true
         imageComponent
             .heightAnchor
-            .constraint(equalToConstant: imageProps.isDetailsPage ? 32.0 : 64.0)
+            .constraint(equalToConstant: imageProps.isDetailsPage ? ImageConstants.bigger :  ImageConstants.large)
             .isActive = true
     }
     
     // MARK: - Constants
+    private enum ImageConstants {
+        static let medium = CGFloat(24.0)
+        static let large = CGFloat(32.0)
+        static let extraLarge = CGFloat(48.0)
+        static let bigger = CGFloat(64.0)
+    }
 }
