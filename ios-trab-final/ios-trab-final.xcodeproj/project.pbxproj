@@ -37,6 +37,12 @@
 		19E1CC2E2744746100BB0CDB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC2D2744746100BB0CDB /* ViewModel.swift */; };
 		19E1CC2F2744746100BB0CDB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC2D2744746100BB0CDB /* ViewModel.swift */; };
 		19E1CC302744746100BB0CDB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC2D2744746100BB0CDB /* ViewModel.swift */; };
+		19E1CC3327447E4800BB0CDB /* ImageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC3227447E4800BB0CDB /* ImageComponent.swift */; };
+		19E1CC3427447E4800BB0CDB /* ImageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC3227447E4800BB0CDB /* ImageComponent.swift */; };
+		19E1CC3527447E4800BB0CDB /* ImageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC3227447E4800BB0CDB /* ImageComponent.swift */; };
+		19E1CC3727447E6D00BB0CDB /* ImageComponentProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC3627447E6D00BB0CDB /* ImageComponentProps.swift */; };
+		19E1CC3827447E6D00BB0CDB /* ImageComponentProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC3627447E6D00BB0CDB /* ImageComponentProps.swift */; };
+		19E1CC3927447E6D00BB0CDB /* ImageComponentProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC3627447E6D00BB0CDB /* ImageComponentProps.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +83,8 @@
 		19E1CC24274473E400BB0CDB /* InitialViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewProps.swift; sourceTree = "<group>"; };
 		19E1CC28274473F900BB0CDB /* DetailViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewProps.swift; sourceTree = "<group>"; };
 		19E1CC2D2744746100BB0CDB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		19E1CC3227447E4800BB0CDB /* ImageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageComponent.swift; sourceTree = "<group>"; };
+		19E1CC3627447E6D00BB0CDB /* ImageComponentProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageComponentProps.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +135,7 @@
 		19E1CBE02744687100BB0CDB /* ios-trab-final */ = {
 			isa = PBXGroup;
 			children = (
+				19E1CC3127447E3300BB0CDB /* Components */,
 				19E1CC132744735900BB0CDB /* ViewModel */,
 				19E1CC122744734800BB0CDB /* ViewController */,
 				19E1CC112744733100BB0CDB /* View */,
@@ -192,6 +201,15 @@
 				19E1CC28274473F900BB0CDB /* DetailViewProps.swift */,
 			);
 			path = ViewProps;
+			sourceTree = "<group>";
+		};
+		19E1CC3127447E3300BB0CDB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				19E1CC3227447E4800BB0CDB /* ImageComponent.swift */,
+				19E1CC3627447E6D00BB0CDB /* ImageComponentProps.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19E1CC2E2744746100BB0CDB /* ViewModel.swift in Sources */,
+				19E1CC3327447E4800BB0CDB /* ImageComponent.swift in Sources */,
 				19E1CBE62744687100BB0CDB /* ViewController.swift in Sources */,
 				19E1CC152744739500BB0CDB /* InitialView.swift in Sources */,
 				19E1CC25274473E400BB0CDB /* InitialViewProps.swift in Sources */,
@@ -334,6 +353,7 @@
 				19E1CC29274473F900BB0CDB /* DetailViewProps.swift in Sources */,
 				19E1CC21274473CE00BB0CDB /* DetaillViewController.swift in Sources */,
 				19E1CC19274473A500BB0CDB /* DetailView.swift in Sources */,
+				19E1CC3727447E6D00BB0CDB /* ImageComponentProps.swift in Sources */,
 				19E1CBE42744687100BB0CDB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +362,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19E1CC3827447E6D00BB0CDB /* ImageComponentProps.swift in Sources */,
+				19E1CC3427447E4800BB0CDB /* ImageComponent.swift in Sources */,
 				19E1CC22274473CE00BB0CDB /* DetaillViewController.swift in Sources */,
 				19E1CBF92744687200BB0CDB /* ios_trab_finalTests.swift in Sources */,
 				19E1CC26274473E400BB0CDB /* InitialViewProps.swift in Sources */,
@@ -360,7 +382,9 @@
 				19E1CC1F274473B700BB0CDB /* InitialViewController.swift in Sources */,
 				19E1CC302744746100BB0CDB /* ViewModel.swift in Sources */,
 				19E1CC172744739500BB0CDB /* InitialView.swift in Sources */,
+				19E1CC3527447E4800BB0CDB /* ImageComponent.swift in Sources */,
 				19E1CC2B274473F900BB0CDB /* DetailViewProps.swift in Sources */,
+				19E1CC3927447E6D00BB0CDB /* ImageComponentProps.swift in Sources */,
 				19E1CC1B274473A500BB0CDB /* DetailView.swift in Sources */,
 				19E1CC052744687300BB0CDB /* ios_trab_finalUITestsLaunchTests.swift in Sources */,
 				19E1CC27274473E400BB0CDB /* InitialViewProps.swift in Sources */,
