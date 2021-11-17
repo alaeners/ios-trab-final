@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-class ImageComponent: UIImage {
+class ImageComponent: UIImageView {
     
-    override init(props: ImageComponentProps) {
-        super.init(nibName: nil, bundle: nil)
+    init(props: ImageComponentProps) {
+        super.init(image: nil, highlightedImage: nil)
         render(props: props)
    }
     
