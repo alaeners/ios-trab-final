@@ -8,11 +8,14 @@
 import Foundation
 import UIKit
 
-class ImageComponent: UIImageView {
+class ImageComponent: UIView {
+    var imageProps: ImageComponentProps
+    let imageComponent = UIImageView()
     
     init(props: ImageComponentProps) {
-        super.init(image: nil, highlightedImage: nil)
-        render(props: props)
+        imageProps = props
+        super.init(frame: .zero)
+        render()
    }
     
     required public init(coder aDecoder: NSCoder) {
@@ -20,7 +23,9 @@ class ImageComponent: UIImageView {
     }
     
     // MARK: - Render
-    public func render(props: ImageComponentProps) { }
+    public func render() {
+        setupView()
+    }
     
     // MARK: - Private Methods
     private func setupView() {
@@ -29,9 +34,24 @@ class ImageComponent: UIImageView {
         setupConstraints()
     }
     
-    private func setupHierarchy() { }
+    private func setupHierarchy() {
+        addSubview(imageComponent)
+    }
     
-    private func setupStyle() { }
+    private func setupStyle() {
+        imageComponent.backgroundColor = imageProps.isDetailsPage ? .blue : .red
+    }
     
-    private func setupConstraints() {  }
+    private func setupConstraints() {
+        imageComponent
+            .widthAnchor
+            .constraint(equalToConstant: imageProps.isDetailsPage ? 24.0 : 48.0)
+            .isActive = true
+        imageComponent
+            .heightAnchor
+            .constraint(equalToConstant: imageProps.isDetailsPage ? 32.0 : 64.0)
+            .isActive = true
+    }
+    
+    // MARK: - Constants
 }
