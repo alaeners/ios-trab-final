@@ -9,5 +9,8 @@ import Foundation
 import UIKit
 
 class InitialView: UIView {
+    lazy var movieImage = UIImage()
+    lazy var movieDescription = String()
+    lazy var movieCollectionView = UICollectionView()
     
 }

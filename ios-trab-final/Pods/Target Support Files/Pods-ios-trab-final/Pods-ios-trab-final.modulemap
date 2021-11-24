@@ -1,0 +1,6 @@
+framework module Pods_ios_trab_final {
+  umbrella header "Pods-ios-trab-final-umbrella.h"
+
+  export *
+  module * { export * }
+}

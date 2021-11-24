@@ -6,5 +6,6 @@
 //
 
 import Foundation
+import Alamofire
 
 class ViewModel {}
