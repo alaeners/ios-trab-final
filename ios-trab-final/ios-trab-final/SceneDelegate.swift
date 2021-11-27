@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.backgroundColor = .blue
         window = UIWindow(windowScene: windowScene)
         
-        let vc = InitialViewController()
+        let vc = InitialCollectionViewController()
         let rootNC = UINavigationController(rootViewController: vc)
         self.window?.rootViewController = rootNC
         self.window?.makeKeyAndVisible()
