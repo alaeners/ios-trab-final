@@ -19,11 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.backgroundColor = .blue
-        window = UIWindow(windowScene: windowScene)
-        
-        let vc = InitialCollectionViewController()
+            
+        self.window = UIWindow(windowScene: windowScene)
+
+        let layout = UICollectionViewLayout()
+        let vc = InitialCollectionViewController(collectionViewLayout: layout)
+
         let rootNC = UINavigationController(rootViewController: vc)
+
         self.window?.rootViewController = rootNC
         self.window?.makeKeyAndVisible()
     }

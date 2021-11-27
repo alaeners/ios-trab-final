@@ -13,6 +13,8 @@ class InitialView: UIView {
     lazy var movieDescription = String()
     lazy var movieCollectionView = UICollectionView()
     
+
+    
     lazy var stackView: UIStackView = {
         let sv = UIStackView()
         sv.translatesAutoresizingMaskIntoConstraints = false
