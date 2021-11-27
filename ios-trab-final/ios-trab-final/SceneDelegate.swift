@@ -20,13 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.backgroundColor = .blue
-            
-        self.window = UIWindow(windowScene: windowScene)
-
+        window = UIWindow(windowScene: windowScene)
+        
         let vc = InitialViewController()
-
         let rootNC = UINavigationController(rootViewController: vc)
-
         self.window?.rootViewController = rootNC
         self.window?.makeKeyAndVisible()
     }
