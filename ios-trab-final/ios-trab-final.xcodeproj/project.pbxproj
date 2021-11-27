@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,9 +11,7 @@
 		19E1CBE22744687100BB0CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CBE12744687100BB0CDB /* AppDelegate.swift */; };
 		19E1CBE42744687100BB0CDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CBE32744687100BB0CDB /* SceneDelegate.swift */; };
 		19E1CBE62744687100BB0CDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CBE52744687100BB0CDB /* ViewController.swift */; };
-		19E1CBE92744687100BB0CDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E1CBE72744687100BB0CDB /* Main.storyboard */; };
 		19E1CBEB2744687200BB0CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19E1CBEA2744687200BB0CDB /* Assets.xcassets */; };
-		19E1CBEE2744687200BB0CDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E1CBEC2744687200BB0CDB /* LaunchScreen.storyboard */; };
 		19E1CBF92744687200BB0CDB /* ios_trab_finalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CBF82744687200BB0CDB /* ios_trab_finalTests.swift */; };
 		19E1CC032744687300BB0CDB /* ios_trab_finalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC022744687300BB0CDB /* ios_trab_finalUITests.swift */; };
 		19E1CC052744687300BB0CDB /* ios_trab_finalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC042744687300BB0CDB /* ios_trab_finalUITestsLaunchTests.swift */; };
@@ -64,9 +62,7 @@
 		19E1CBE12744687100BB0CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19E1CBE32744687100BB0CDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		19E1CBE52744687100BB0CDB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		19E1CBE82744687100BB0CDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19E1CBEA2744687200BB0CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		19E1CBED2744687200BB0CDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19E1CBEF2744687200BB0CDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19E1CBF42744687200BB0CDB /* ios-trab-finalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-trab-finalTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E1CBF82744687200BB0CDB /* ios_trab_finalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_trab_finalTests.swift; sourceTree = "<group>"; };
@@ -151,9 +147,7 @@
 				19E1CBE12744687100BB0CDB /* AppDelegate.swift */,
 				19E1CBE32744687100BB0CDB /* SceneDelegate.swift */,
 				19E1CBE52744687100BB0CDB /* ViewController.swift */,
-				19E1CBE72744687100BB0CDB /* Main.storyboard */,
 				19E1CBEA2744687200BB0CDB /* Assets.xcassets */,
-				19E1CBEC2744687200BB0CDB /* LaunchScreen.storyboard */,
 				19E1CBEF2744687200BB0CDB /* Info.plist */,
 			);
 			path = "ios-trab-final";
@@ -311,7 +305,7 @@
 				};
 			};
 			buildConfigurationList = 19E1CBD92744687100BB0CDB /* Build configuration list for PBXProject "ios-trab-final" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -335,9 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19E1CBEE2744687200BB0CDB /* LaunchScreen.storyboard in Resources */,
 				19E1CBEB2744687200BB0CDB /* Assets.xcassets in Resources */,
-				19E1CBE92744687100BB0CDB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,25 +456,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		19E1CBE72744687100BB0CDB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				19E1CBE82744687100BB0CDB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		19E1CBEC2744687200BB0CDB /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				19E1CBED2744687200BB0CDB /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		19E1CC062744687300BB0CDB /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -606,13 +579,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-trab-final/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -622,9 +595,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "alaene.ios-trab-final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -634,13 +608,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-trab-final/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -650,9 +624,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "alaene.ios-trab-final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
