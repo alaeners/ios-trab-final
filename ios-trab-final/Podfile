@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'ios-trab-final' do
   pod 'Alamofire'
+  pod 'AlamofireImage'
 end

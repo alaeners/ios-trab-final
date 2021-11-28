@@ -12,19 +12,31 @@ class InitialViewController: UIViewController {
     let viewModel: ViewModel
     let initialView: InitialView
     private let cellIdentifier = "cell"
+    private var widthCollection = CGFloat()
+    private var heightCollection = CGFloat()
+    var movies = [Movies]()
+    
+    private enum SizesConstants {
+        static let numberOfLines = 0
+    }
     
     //temporario ate eu entender o que ta pegando
     private lazy var flowLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
-        layout.itemSize = CGSize(width: 60, height: 60)
+        layout.sectionInset = UIEdgeInsets(top: 0,
+                                           left: 0,
+                                           bottom: 0,
+                                           right: 0)
+        layout.minimumInteritemSpacing = 1
+        layout.itemSize = CGSize(width: widthCollection,
+                                 height: heightCollection)
         return layout
     }()
     
     lazy var movieCollectionView: UICollectionView = {
         let collection = UICollectionView(frame: view.frame, collectionViewLayout: flowLayout)
         collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        collection.backgroundColor = .white
+        collection.backgroundColor = .darkGray
         collection.delegate = self
         collection.dataSource = self
         return collection
@@ -42,6 +54,7 @@ class InitialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchData()
         setupView()
     }
     
@@ -57,12 +70,25 @@ class InitialViewController: UIViewController {
     
     func setupView() {
         view.backgroundColor = .white
+        title = "Top Movies"
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        widthCollection = ((view.frame.size.width - 10)/2)
+        heightCollection = (widthCollection * 1.5)
         view.addSubview(movieCollectionView)
+        
+        
 //        initialView.addSubview(initialView.movieCollectionView)
 //
 //        initialView.onMovieTap = {
 //            self.navigationController?.pushViewController(DetailViewController(), animated: true)
 //        }
+    }
+    
+    func fetchData() {
+        let service = MoviesAPI(baseURL: "https://www.themoviedb.org/movie/top-rated")
+        service.getTopRatedMovies(endPoint: "")
+            
+        viewModel.fetchMovies(url: "https://www.themoviedb.org/movie/top-rated", movieID: "")
     }
 }
 
@@ -73,7 +99,7 @@ extension InitialViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //pegar count de itens que vier da api
-        return 5
+        6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
