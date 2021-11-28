@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1912A421274E8A4B00AE854B /* MoviesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1912A420274E8A4B00AE854B /* MoviesAPI.swift */; };
 		19E1CBE22744687100BB0CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CBE12744687100BB0CDB /* AppDelegate.swift */; };
-		19E1CBE42744687100BB0CDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CBE32744687100BB0CDB /* SceneDelegate.swift */; };
-		19E1CBE62744687100BB0CDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CBE52744687100BB0CDB /* ViewController.swift */; };
 		19E1CBEB2744687200BB0CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19E1CBEA2744687200BB0CDB /* Assets.xcassets */; };
 		19E1CBF92744687200BB0CDB /* ios_trab_finalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CBF82744687200BB0CDB /* ios_trab_finalTests.swift */; };
 		19E1CC032744687300BB0CDB /* ios_trab_finalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC022744687300BB0CDB /* ios_trab_finalUITests.swift */; };
@@ -60,10 +58,7 @@
 		1912A420274E8A4B00AE854B /* MoviesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPI.swift; sourceTree = "<group>"; };
 		19E1CBDE2744687100BB0CDB /* ios-trab-final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-trab-final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E1CBE12744687100BB0CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		19E1CBE32744687100BB0CDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		19E1CBE52744687100BB0CDB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		19E1CBEA2744687200BB0CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		19E1CBEF2744687200BB0CDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19E1CBF42744687200BB0CDB /* ios-trab-finalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-trab-finalTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E1CBF82744687200BB0CDB /* ios_trab_finalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_trab_finalTests.swift; sourceTree = "<group>"; };
 		19E1CBFE2744687300BB0CDB /* ios-trab-finalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-trab-finalUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +71,7 @@
 		19E1CC24274473E400BB0CDB /* InitialViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewProps.swift; sourceTree = "<group>"; };
 		19E1CC28274473F900BB0CDB /* DetailViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewProps.swift; sourceTree = "<group>"; };
 		19E1CC2D2744746100BB0CDB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		19E442392753C40700FE77DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DBA5D6E031BF9E84B6BD9B5 /* Pods-ios-trab-final.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-trab-final.debug.xcconfig"; path = "Target Support Files/Pods-ios-trab-final/Pods-ios-trab-final.debug.xcconfig"; sourceTree = "<group>"; };
 		4C9AF8B88071B51AE7B845A3 /* Pods_ios_trab_final.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_trab_final.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5C394887E879203E75B1F6 /* Pods-ios-trab-final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-trab-final.release.xcconfig"; path = "Target Support Files/Pods-ios-trab-final/Pods-ios-trab-final.release.xcconfig"; sourceTree = "<group>"; };
@@ -145,10 +141,8 @@
 				19E1CC122744734800BB0CDB /* ViewController */,
 				19E1CC112744733100BB0CDB /* View */,
 				19E1CBE12744687100BB0CDB /* AppDelegate.swift */,
-				19E1CBE32744687100BB0CDB /* SceneDelegate.swift */,
-				19E1CBE52744687100BB0CDB /* ViewController.swift */,
 				19E1CBEA2744687200BB0CDB /* Assets.xcassets */,
-				19E1CBEF2744687200BB0CDB /* Info.plist */,
+				19E442392753C40700FE77DA /* Info.plist */,
 			);
 			path = "ios-trab-final";
 			sourceTree = "<group>";
@@ -397,7 +391,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				19E1CC2E2744746100BB0CDB /* ViewModel.swift in Sources */,
-				19E1CBE62744687100BB0CDB /* ViewController.swift in Sources */,
 				19E1CC152744739500BB0CDB /* InitialView.swift in Sources */,
 				19E1CC25274473E400BB0CDB /* InitialViewProps.swift in Sources */,
 				19E1CBE22744687100BB0CDB /* AppDelegate.swift in Sources */,
@@ -405,7 +398,6 @@
 				19E1CC29274473F900BB0CDB /* DetailViewProps.swift in Sources */,
 				19E1CC21274473CE00BB0CDB /* DetaillViewController.swift in Sources */,
 				19E1CC19274473A500BB0CDB /* DetailView.swift in Sources */,
-				19E1CBE42744687100BB0CDB /* SceneDelegate.swift in Sources */,
 				1912A421274E8A4B00AE854B /* MoviesAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

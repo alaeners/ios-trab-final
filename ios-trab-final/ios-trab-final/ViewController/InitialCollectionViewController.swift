@@ -11,7 +11,10 @@ import UIKit
 class InitialCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.backgroundColor = .cyan
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,7 +33,8 @@ extension InitialCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .brown
+        cell.backgroundColor = .purple
+        title = "OIII VIAAADOOOOOOOOOO!"
         
         return cell
     }
