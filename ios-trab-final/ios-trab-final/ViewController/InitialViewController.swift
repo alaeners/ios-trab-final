@@ -67,13 +67,13 @@ class InitialViewController: UIViewController {
 }
 
 extension InitialViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //pegar count de itens que vier da api
-        return 100
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
