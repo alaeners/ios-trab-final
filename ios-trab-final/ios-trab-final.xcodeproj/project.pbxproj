@@ -19,12 +19,12 @@
 		19E1CC19274473A500BB0CDB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC18274473A500BB0CDB /* DetailView.swift */; };
 		19E1CC1A274473A500BB0CDB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC18274473A500BB0CDB /* DetailView.swift */; };
 		19E1CC1B274473A500BB0CDB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC18274473A500BB0CDB /* DetailView.swift */; };
-		19E1CC1D274473B700BB0CDB /* InitialCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC1C274473B700BB0CDB /* InitialCollectionViewController.swift */; };
-		19E1CC1E274473B700BB0CDB /* InitialCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC1C274473B700BB0CDB /* InitialCollectionViewController.swift */; };
-		19E1CC1F274473B700BB0CDB /* InitialCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC1C274473B700BB0CDB /* InitialCollectionViewController.swift */; };
-		19E1CC21274473CE00BB0CDB /* DetaillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC20274473CE00BB0CDB /* DetaillViewController.swift */; };
-		19E1CC22274473CE00BB0CDB /* DetaillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC20274473CE00BB0CDB /* DetaillViewController.swift */; };
-		19E1CC23274473CE00BB0CDB /* DetaillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC20274473CE00BB0CDB /* DetaillViewController.swift */; };
+		19E1CC1D274473B700BB0CDB /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC1C274473B700BB0CDB /* InitialViewController.swift */; };
+		19E1CC1E274473B700BB0CDB /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC1C274473B700BB0CDB /* InitialViewController.swift */; };
+		19E1CC1F274473B700BB0CDB /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC1C274473B700BB0CDB /* InitialViewController.swift */; };
+		19E1CC21274473CE00BB0CDB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC20274473CE00BB0CDB /* DetailViewController.swift */; };
+		19E1CC22274473CE00BB0CDB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC20274473CE00BB0CDB /* DetailViewController.swift */; };
+		19E1CC23274473CE00BB0CDB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC20274473CE00BB0CDB /* DetailViewController.swift */; };
 		19E1CC25274473E400BB0CDB /* InitialViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC24274473E400BB0CDB /* InitialViewProps.swift */; };
 		19E1CC26274473E400BB0CDB /* InitialViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC24274473E400BB0CDB /* InitialViewProps.swift */; };
 		19E1CC27274473E400BB0CDB /* InitialViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC24274473E400BB0CDB /* InitialViewProps.swift */; };
@@ -66,8 +66,8 @@
 		19E1CC042744687300BB0CDB /* ios_trab_finalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_trab_finalUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		19E1CC142744739500BB0CDB /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		19E1CC18274473A500BB0CDB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		19E1CC1C274473B700BB0CDB /* InitialCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCollectionViewController.swift; sourceTree = "<group>"; };
-		19E1CC20274473CE00BB0CDB /* DetaillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaillViewController.swift; sourceTree = "<group>"; };
+		19E1CC1C274473B700BB0CDB /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		19E1CC20274473CE00BB0CDB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		19E1CC24274473E400BB0CDB /* InitialViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewProps.swift; sourceTree = "<group>"; };
 		19E1CC28274473F900BB0CDB /* DetailViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewProps.swift; sourceTree = "<group>"; };
 		19E1CC2D2744746100BB0CDB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -177,8 +177,8 @@
 		19E1CC122744734800BB0CDB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				19E1CC1C274473B700BB0CDB /* InitialCollectionViewController.swift */,
-				19E1CC20274473CE00BB0CDB /* DetaillViewController.swift */,
+				19E1CC1C274473B700BB0CDB /* InitialViewController.swift */,
+				19E1CC20274473CE00BB0CDB /* DetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -394,9 +394,9 @@
 				19E1CC152744739500BB0CDB /* InitialView.swift in Sources */,
 				19E1CC25274473E400BB0CDB /* InitialViewProps.swift in Sources */,
 				19E1CBE22744687100BB0CDB /* AppDelegate.swift in Sources */,
-				19E1CC1D274473B700BB0CDB /* InitialCollectionViewController.swift in Sources */,
+				19E1CC1D274473B700BB0CDB /* InitialViewController.swift in Sources */,
 				19E1CC29274473F900BB0CDB /* DetailViewProps.swift in Sources */,
-				19E1CC21274473CE00BB0CDB /* DetaillViewController.swift in Sources */,
+				19E1CC21274473CE00BB0CDB /* DetailViewController.swift in Sources */,
 				19E1CC19274473A500BB0CDB /* DetailView.swift in Sources */,
 				1912A421274E8A4B00AE854B /* MoviesAPI.swift in Sources */,
 			);
@@ -406,12 +406,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19E1CC22274473CE00BB0CDB /* DetaillViewController.swift in Sources */,
+				19E1CC22274473CE00BB0CDB /* DetailViewController.swift in Sources */,
 				19E1CBF92744687200BB0CDB /* ios_trab_finalTests.swift in Sources */,
 				19E1CC26274473E400BB0CDB /* InitialViewProps.swift in Sources */,
 				19E1CC1A274473A500BB0CDB /* DetailView.swift in Sources */,
 				19E1CC162744739500BB0CDB /* InitialView.swift in Sources */,
-				19E1CC1E274473B700BB0CDB /* InitialCollectionViewController.swift in Sources */,
+				19E1CC1E274473B700BB0CDB /* InitialViewController.swift in Sources */,
 				19E1CC2F2744746100BB0CDB /* ViewModel.swift in Sources */,
 				19E1CC2A274473F900BB0CDB /* DetailViewProps.swift in Sources */,
 			);
@@ -421,14 +421,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19E1CC1F274473B700BB0CDB /* InitialCollectionViewController.swift in Sources */,
+				19E1CC1F274473B700BB0CDB /* InitialViewController.swift in Sources */,
 				19E1CC302744746100BB0CDB /* ViewModel.swift in Sources */,
 				19E1CC172744739500BB0CDB /* InitialView.swift in Sources */,
 				19E1CC2B274473F900BB0CDB /* DetailViewProps.swift in Sources */,
 				19E1CC1B274473A500BB0CDB /* DetailView.swift in Sources */,
 				19E1CC052744687300BB0CDB /* ios_trab_finalUITestsLaunchTests.swift in Sources */,
 				19E1CC27274473E400BB0CDB /* InitialViewProps.swift in Sources */,
-				19E1CC23274473CE00BB0CDB /* DetaillViewController.swift in Sources */,
+				19E1CC23274473CE00BB0CDB /* DetailViewController.swift in Sources */,
 				19E1CC032744687300BB0CDB /* ios_trab_finalUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,6 +578,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-trab-final/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -607,6 +608,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-trab-final/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

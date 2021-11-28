@@ -25,4 +25,12 @@ class ViewModel {
             }
         }
     }
+    
+    func getInitialProps() -> InitialViewProps {
+        InitialViewProps()
+    }
+    
+    func getDetailsProps() -> DetailViewProps {
+        DetailViewProps()
+    }
 }
