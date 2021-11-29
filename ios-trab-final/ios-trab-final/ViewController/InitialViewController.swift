@@ -11,7 +11,7 @@ import UIKit
 
 class InitialViewController: UIViewController {
     let viewModel: ViewModel
-    let initialView: InitialView
+//    let initialView: InitialView
     private let cellIdentifier = "cell"
     private var widthCollection = CGFloat()
     private var heightCollection = CGFloat()
@@ -40,7 +40,7 @@ class InitialViewController: UIViewController {
     
     init(vm: ViewModel) {
         viewModel = vm
-        initialView = InitialView(properties: viewModel.getInitialProps())
+//        initialView = InitialView(properties: viewModel.getInitialProps())
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -50,7 +50,7 @@ class InitialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        fetchData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,17 +60,16 @@ class InitialViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupView()
+        fetchData()
     }
     
-    func setupView() {
+    func setupView(movieData: [MovieData]) {
         view.backgroundColor = .gray
         title = "Top Movies"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         widthCollection = ((view.frame.size.width - 10)/2)
         heightCollection = (widthCollection * 1.5)
         view.addSubview(movieCollectionView)
-        fetchData()
         
         
         //        view.addSubview(initialView)
@@ -81,7 +80,14 @@ class InitialViewController: UIViewController {
     }
     
     func fetchData() {
-        viewModel.fetchMovies(movieID: "")
+        viewModel.fetchMovies(movieID: "") { movieData, error in
+            DispatchQueue.main.async { [weak self] in
+                guard let safeSelf = self else { return }
+                guard let safeModel = safeSelf.viewModel.setupData(model: movieData) else { return }
+                safeSelf.setupView(movieData: safeModel)
+                safeSelf.movieCollectionView.reloadData()
+            }
+        }
     }
 }
 
@@ -91,8 +97,7 @@ extension InitialViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //        movies.count
-        5
+        viewModel.moviesData?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

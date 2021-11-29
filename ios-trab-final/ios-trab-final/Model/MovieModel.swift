@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - Welcome
-class MovieModel: Codable {
+class MovieModel: Decodable {
     let page: Int
     let results: [MovieData]
     let totalPages, totalResults: Int
@@ -29,7 +29,7 @@ class MovieModel: Codable {
 }
 
 // MARK: - Result
-class MovieData: Codable {
+class MovieData: Decodable {
     let adult: Bool
     let backdropPath: String
     let genreIDS: [Int]

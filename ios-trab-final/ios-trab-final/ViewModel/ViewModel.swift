@@ -11,28 +11,43 @@ import Alamofire
 class ViewModel {
     let token = "?api_key=a2476b7947306191bba091a7f75eb5eb"
     var baseURL = "https://api.themoviedb.org/3/movie/"
-    var movieData: MovieData? = nil
+    var movieModel: MovieModel? = nil
+    var moviesData: [MovieData]? = nil
+    var movieID: String
     
-    func fetchMovies(movieID: String) {
+    init(movieID: String) {
+        self.movieID = movieID
+    }
+    
+    func fetchMovies(movieID: String, _ callBack: @escaping (MovieModel?, String?) -> Void) {
         baseURL = "https://api.themoviedb.org/3/movie/top_rated\(token)"
         if !movieID.isEmpty { baseURL = "https://api.themoviedb.org/3/movie/\(movieID)\(token)" }
         
         Alamofire.request(baseURL).responseJSON { response in
+            guard let data = response.data, response.error == nil else { return  }
+
             switch response.result {
-            case .success(let data):
-                print(data)
+            case .success:
+                do { self.movieModel = try JSONDecoder().decode(MovieModel.self, from: data) }
+                catch { print(error) }
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }
-    func getInitialProps() -> InitialViewProps {
-        InitialViewProps(img: movieData?.backdropPath ?? "")
+
+    func setupData(model: MovieModel?) -> [MovieData]? {
+        moviesData = model?.results ?? []
+        return model?.results ?? nil
     }
     
-    func getDetailsProps() -> DetailViewProps {
-        DetailViewProps(movieImg: movieData?.backdropPath ?? "",
-                        moveiTitle: movieData?.title ?? "",
-                        movieDesc: movieData?.overview ?? "")
+    func getInitialProps(index: Int) -> InitialViewProps {
+        InitialViewProps(img: moviesData?[index].backdropPath ?? "")
+    }
+
+    func getDetailsProps(index: Int) -> DetailViewProps {
+        DetailViewProps(movieImg: moviesData?[index].backdropPath ?? "",
+                        moveiTitle: moviesData?[index].title ?? "",
+                        movieDesc: moviesData?[index].overview ?? "")
     }
 }

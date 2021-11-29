@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
             
-        let vm = ViewModel()
+        let vm = ViewModel(movieID: "")
         let vc = InitialViewController(vm: vm)
         let rootNC = UINavigationController(rootViewController: vc)
         window?.rootViewController = rootNC
