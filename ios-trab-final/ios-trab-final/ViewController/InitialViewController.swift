@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 import UIKit
 
 class InitialViewController: UIViewController {
@@ -14,11 +15,7 @@ class InitialViewController: UIViewController {
     private let cellIdentifier = "cell"
     private var widthCollection = CGFloat()
     private var heightCollection = CGFloat()
-    var movies = [Movies]()
-    
-    private enum SizesConstants {
-        static let numberOfLines = 0
-    }
+    var movie: [Movie]?
     
     //temporario ate eu entender o que ta pegando
     private lazy var flowLayout: UICollectionViewFlowLayout = {
@@ -41,7 +38,7 @@ class InitialViewController: UIViewController {
         collection.dataSource = self
         return collection
     }()
-
+    
     init(vm: ViewModel) {
         viewModel = vm
         initialView = InitialView(properties: viewModel.getInitialProps())
@@ -54,7 +51,6 @@ class InitialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData()
         setupView()
     }
     
@@ -69,26 +65,24 @@ class InitialViewController: UIViewController {
     }
     
     func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .gray
         title = "Top Movies"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         widthCollection = ((view.frame.size.width - 10)/2)
         heightCollection = (widthCollection * 1.5)
         view.addSubview(movieCollectionView)
+        fetchData()
         
         
-//        initialView.addSubview(initialView.movieCollectionView)
-//
-//        initialView.onMovieTap = {
-//            self.navigationController?.pushViewController(DetailViewController(), animated: true)
-//        }
+        //        view.addSubview(initialView)
+        //
+        //        initialView.onMovieTap = {
+        //            self.navigationController?.pushViewController(DetailViewController(), animated: true)
+        //        }
     }
     
     func fetchData() {
-        let service = MoviesAPI(baseURL: "https://www.themoviedb.org/movie/top-rated")
-        service.getTopRatedMovies(endPoint: "")
-            
-        viewModel.fetchMovies(url: "https://www.themoviedb.org/movie/top-rated", movieID: "")
+        viewModel.fetchMovies(movieID: "")
     }
 }
 
@@ -98,8 +92,8 @@ extension InitialViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //pegar count de itens que vier da api
-        6
+        //        movies.count
+        5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

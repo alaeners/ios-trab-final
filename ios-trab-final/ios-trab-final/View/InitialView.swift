@@ -38,6 +38,7 @@ class InitialView: UICollectionView, UICollectionViewDelegate, UICollectionViewD
     init(properties: InitialViewProps) {
         self.properties = properties
         super.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        render(properties: properties)
     }
     
     required init?(coder: NSCoder) {
@@ -67,7 +68,8 @@ class InitialView: UICollectionView, UICollectionViewDelegate, UICollectionViewD
     }
     
     private func setupStyle() {}
-    private func setupConstraints() {}
+    private func setupConstraints() {        
+    }
     
     @objc func goMovieDetails() {
         onMovieTap?()

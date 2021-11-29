@@ -9,25 +9,24 @@ import Foundation
 import Alamofire
 
 class ViewModel {
+    let token = "?api_key=a2476b7947306191bba091a7f75eb5eb"
+    var baseURL = "https://api.themoviedb.org/3/movie/"
     
-    func fetchMovies(url: String, movieID: String) {
-        Alamofire.request(url, method: .get, encoding: JSONEncoding.default).responseJSON { response in
+    func fetchMovies(movieID: String) {
+        baseURL = "https://api.themoviedb.org/3/movie/top_rated\(token)"
+        if !movieID.isEmpty { baseURL = "https://api.themoviedb.org/3/movie/\(movieID)\(token)" }
+        Alamofire.request(baseURL).responseJSON { response in
             switch response.result {
-            case .success(let jsonData):
-                print(jsonData)
-                DispatchQueue.main.async {
-                    //usar o resultado em algo
-                    
-                }
+            case .success(let data):
+                print(data)
             case .failure(let error):
                 print(error)
-                //mandar dar uma nova tentativa aqui
             }
         }
     }
     
     func getInitialProps() -> InitialViewProps {
-        InitialViewProps()
+        InitialViewProps(img: "")
     }
     
     func getDetailsProps() -> DetailViewProps {
