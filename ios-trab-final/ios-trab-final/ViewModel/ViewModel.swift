@@ -31,11 +31,8 @@ class ViewModel {
     }
     
     func getDetailsProps() -> DetailViewProps {
-        DetailViewProps()
+        DetailViewProps(movieImg: movieData?.backdropPath ?? "",
+                        moveiTitle: movieData?.title ?? "",
+                        movieDesc: movieData?.overview ?? "")
     }
-}
-
-
-struct Movies {
-    
 }

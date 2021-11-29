@@ -8,5 +8,13 @@
 import Foundation
 
 class DetailViewProps {
+    var image: String
+    var title: String
+    var description: String
     
+    init(movieImg: String, moveiTitle: String, movieDesc: String) {
+        image = movieImg
+        title = moveiTitle
+        description = movieDesc
+    }
 }
