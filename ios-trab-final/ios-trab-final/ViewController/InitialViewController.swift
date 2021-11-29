@@ -15,7 +15,6 @@ class InitialViewController: UIViewController {
     private let cellIdentifier = "cell"
     private var widthCollection = CGFloat()
     private var heightCollection = CGFloat()
-    var movie: [Movie]?
     
     //temporario ate eu entender o que ta pegando
     private lazy var flowLayout: UICollectionViewFlowLayout = {
