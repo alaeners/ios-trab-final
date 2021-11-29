@@ -11,7 +11,7 @@ import Alamofire
 class ViewModel {
     let token = "?api_key=a2476b7947306191bba091a7f75eb5eb"
     var baseURL = "https://api.themoviedb.org/3/movie/"
-    var model: [MovieData]? = []
+    var movieData: MovieData? = nil
     
     func fetchMovies(movieID: String) {
         baseURL = "https://api.themoviedb.org/3/movie/top_rated\(token)"
@@ -26,14 +26,8 @@ class ViewModel {
             }
         }
     }
-    
-    func setupModel(modelData: Any) -> MovieData {
-        guard let safeModel = modelData { return }
-        return safeModel as! MovieData
-    }
-    
     func getInitialProps() -> InitialViewProps {
-        InitialViewProps(img: model?.backdropPath ?? "")
+        InitialViewProps(img: movieData?.backdropPath ?? "")
     }
     
     func getDetailsProps() -> DetailViewProps {
