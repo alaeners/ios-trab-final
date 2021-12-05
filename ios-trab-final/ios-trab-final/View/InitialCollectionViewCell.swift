@@ -25,17 +25,13 @@ class InitialCollectionViewCell: UICollectionViewCell {
         static let contentViewCornerRadius: CGFloat = 4.0
         
         // MARK: movieImageView layout constants
-        static let imageHeight: CGFloat = 180.0
-        
-        // MARK: Generic layout constants
-        static let verticalSpacing: CGFloat = 8.0
-        static let horizontalPadding: CGFloat = 16.0
-        static let profileDescriptionVerticalPadding: CGFloat = 8.0
+        static let imageHeight: CGFloat = 300.0
     }
     
     private let movieImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = .cyan
         return imageView
     }()
     
@@ -49,7 +45,6 @@ class InitialCollectionViewCell: UICollectionViewCell {
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = Constants.contentViewCornerRadius
         contentView.backgroundColor = .white
-        
         contentView.addSubview(movieImageView)
     }
     
@@ -69,7 +64,7 @@ class InitialCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with properties: InitialCollectionViewCellProps) {
+    func render(with properties: InitialCollectionViewCellProps) {
         movieImageView.image = UIImage(named: properties.image)
     }
 }
