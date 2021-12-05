@@ -43,19 +43,17 @@ class InitialViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .green
         title = "Top Movies"
-        
         setupViews()
         setupLayouts()
-        self.movieCollectionView.reloadData()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     
-        viewModel.fetchMovies(movieID: "") { movieData, error in
-            self.movieCollectionView.reloadData()
-        }
+//        viewModel.fetchMovies(movieID: "") { movieData, error in
+//            self.movieCollectionView.reloadData()
+//        }
+        populateMovies()
     }
     
     
@@ -69,7 +67,6 @@ class InitialViewController: UIViewController {
         movieCollectionView.dataSource = self
         movieCollectionView.delegate = self
         movieCollectionView.register(InitialViewCell.self, forCellWithReuseIdentifier: "cell")
-        movieCollectionView.reloadData()
     }
     
     private func setupLayouts() {
@@ -92,7 +89,8 @@ class InitialViewController: UIViewController {
     
     private func populateMovies() {
         viewModel.fetchMovies(movieID: "") { movieData, error in
-            DispatchQueue.main.sync { [weak self] in
+            DispatchQueue.main.async { [weak self] in
+                if error != nil  { self?.showError() }
                 guard let safeSelf = self else { return }
                 safeSelf.movieCollectionView.reloadData()
             }
@@ -100,9 +98,12 @@ class InitialViewController: UIViewController {
     }
     
     func showError() {
-        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Loading error",
+                                   message: "There was a problem loading the feed; please check your connection and try again.",
+                                   preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(ac, animated: true)
+        populateMovies()
     }
 }
 
