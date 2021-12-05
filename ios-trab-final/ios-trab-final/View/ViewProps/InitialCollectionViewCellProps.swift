@@ -1,5 +1,5 @@
 //
-//  InitialViewProps.swift
+//  InitialCollectionViewCellProps.swift
 //  ios-trab-final
 //
 //  Created by Alaene Sousa on 16/11/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class InitialViewProps {
+class InitialCollectionViewCellProps {
     var image: String
     
     init(img: String = "") {

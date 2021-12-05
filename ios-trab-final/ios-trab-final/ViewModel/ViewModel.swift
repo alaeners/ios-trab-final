@@ -40,8 +40,8 @@ class ViewModel {
         return safeMoviesData
     }
     
-    func getInitialProps(index: Int) -> InitialViewProps {
-        InitialViewProps(img: setupData()[index].backdropPath)
+    func getInitialProps(index: Int) -> InitialCollectionViewCellProps {
+        InitialCollectionViewCellProps(img: setupData()[index].backdropPath)
     }
 
     func getDetailsProps(index: Int) -> DetailViewProps {

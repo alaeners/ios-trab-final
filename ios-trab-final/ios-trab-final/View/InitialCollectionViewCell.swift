@@ -1,5 +1,5 @@
 //
-//  InitialView.swift
+//  InitialCollectionViewCell.swift
 //  ios-trab-final
 //
 //  Created by Alaene Sousa on 16/11/21.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class InitialViewCell: UICollectionViewCell {
+class InitialCollectionViewCell: UICollectionViewCell {
     private enum Constants {
         // MARK: contentView layout constants
         static let contentViewCornerRadius: CGFloat = 4.0
@@ -58,7 +58,7 @@ class InitialViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with properties: InitialViewProps) {
+    func setup(with properties: InitialCollectionViewCellProps) {
         movieImageView.image = UIImage(named: properties.image)
     }
 }

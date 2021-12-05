@@ -66,7 +66,7 @@ class InitialViewController: UIViewController {
         
         movieCollectionView.dataSource = self
         movieCollectionView.delegate = self
-        movieCollectionView.register(InitialViewCell.self, forCellWithReuseIdentifier: "cell")
+        movieCollectionView.register(InitialCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }
     
     private func setupLayouts() {
@@ -113,9 +113,9 @@ extension InitialViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! InitialViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! InitialCollectionViewCell
         
-        let props = InitialViewProps(img: viewModel.setupData()[indexPath.row].backdropPath)
+        let props = InitialCollectionViewCellProps(img: viewModel.setupData()[indexPath.row].backdropPath)
         cell.setup(with: props)
         cell.backgroundColor = .red
         return cell

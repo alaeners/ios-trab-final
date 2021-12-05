@@ -14,9 +14,9 @@
 		19E1CBF92744687200BB0CDB /* ios_trab_finalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CBF82744687200BB0CDB /* ios_trab_finalTests.swift */; };
 		19E1CC032744687300BB0CDB /* ios_trab_finalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC022744687300BB0CDB /* ios_trab_finalUITests.swift */; };
 		19E1CC052744687300BB0CDB /* ios_trab_finalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC042744687300BB0CDB /* ios_trab_finalUITestsLaunchTests.swift */; };
-		19E1CC152744739500BB0CDB /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC142744739500BB0CDB /* InitialView.swift */; };
-		19E1CC162744739500BB0CDB /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC142744739500BB0CDB /* InitialView.swift */; };
-		19E1CC172744739500BB0CDB /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC142744739500BB0CDB /* InitialView.swift */; };
+		19E1CC152744739500BB0CDB /* InitialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC142744739500BB0CDB /* InitialCollectionViewCell.swift */; };
+		19E1CC162744739500BB0CDB /* InitialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC142744739500BB0CDB /* InitialCollectionViewCell.swift */; };
+		19E1CC172744739500BB0CDB /* InitialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC142744739500BB0CDB /* InitialCollectionViewCell.swift */; };
 		19E1CC19274473A500BB0CDB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC18274473A500BB0CDB /* DetailView.swift */; };
 		19E1CC1A274473A500BB0CDB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC18274473A500BB0CDB /* DetailView.swift */; };
 		19E1CC1B274473A500BB0CDB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC18274473A500BB0CDB /* DetailView.swift */; };
@@ -26,9 +26,9 @@
 		19E1CC21274473CE00BB0CDB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC20274473CE00BB0CDB /* DetailViewController.swift */; };
 		19E1CC22274473CE00BB0CDB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC20274473CE00BB0CDB /* DetailViewController.swift */; };
 		19E1CC23274473CE00BB0CDB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC20274473CE00BB0CDB /* DetailViewController.swift */; };
-		19E1CC25274473E400BB0CDB /* InitialViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC24274473E400BB0CDB /* InitialViewProps.swift */; };
-		19E1CC26274473E400BB0CDB /* InitialViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC24274473E400BB0CDB /* InitialViewProps.swift */; };
-		19E1CC27274473E400BB0CDB /* InitialViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC24274473E400BB0CDB /* InitialViewProps.swift */; };
+		19E1CC25274473E400BB0CDB /* InitialCollectionViewCellProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC24274473E400BB0CDB /* InitialCollectionViewCellProps.swift */; };
+		19E1CC26274473E400BB0CDB /* InitialCollectionViewCellProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC24274473E400BB0CDB /* InitialCollectionViewCellProps.swift */; };
+		19E1CC27274473E400BB0CDB /* InitialCollectionViewCellProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC24274473E400BB0CDB /* InitialCollectionViewCellProps.swift */; };
 		19E1CC29274473F900BB0CDB /* DetailViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC28274473F900BB0CDB /* DetailViewProps.swift */; };
 		19E1CC2A274473F900BB0CDB /* DetailViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC28274473F900BB0CDB /* DetailViewProps.swift */; };
 		19E1CC2B274473F900BB0CDB /* DetailViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1CC28274473F900BB0CDB /* DetailViewProps.swift */; };
@@ -66,11 +66,11 @@
 		19E1CBFE2744687300BB0CDB /* ios-trab-finalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-trab-finalUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E1CC022744687300BB0CDB /* ios_trab_finalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_trab_finalUITests.swift; sourceTree = "<group>"; };
 		19E1CC042744687300BB0CDB /* ios_trab_finalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_trab_finalUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		19E1CC142744739500BB0CDB /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
+		19E1CC142744739500BB0CDB /* InitialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCollectionViewCell.swift; sourceTree = "<group>"; };
 		19E1CC18274473A500BB0CDB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		19E1CC1C274473B700BB0CDB /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		19E1CC20274473CE00BB0CDB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		19E1CC24274473E400BB0CDB /* InitialViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewProps.swift; sourceTree = "<group>"; };
+		19E1CC24274473E400BB0CDB /* InitialCollectionViewCellProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCollectionViewCellProps.swift; sourceTree = "<group>"; };
 		19E1CC28274473F900BB0CDB /* DetailViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewProps.swift; sourceTree = "<group>"; };
 		19E1CC2D2744746100BB0CDB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		19E442392753C40700FE77DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				19E1CC2C274473FF00BB0CDB /* ViewProps */,
-				19E1CC142744739500BB0CDB /* InitialView.swift */,
+				19E1CC142744739500BB0CDB /* InitialCollectionViewCell.swift */,
 				19E1CC18274473A500BB0CDB /* DetailView.swift */,
 			);
 			path = View;
@@ -197,7 +197,7 @@
 		19E1CC2C274473FF00BB0CDB /* ViewProps */ = {
 			isa = PBXGroup;
 			children = (
-				19E1CC24274473E400BB0CDB /* InitialViewProps.swift */,
+				19E1CC24274473E400BB0CDB /* InitialCollectionViewCellProps.swift */,
 				19E1CC28274473F900BB0CDB /* DetailViewProps.swift */,
 			);
 			path = ViewProps;
@@ -395,8 +395,8 @@
 			files = (
 				1984E3D42755897B00BBD6B2 /* MovieModel.swift in Sources */,
 				19E1CC2E2744746100BB0CDB /* ViewModel.swift in Sources */,
-				19E1CC152744739500BB0CDB /* InitialView.swift in Sources */,
-				19E1CC25274473E400BB0CDB /* InitialViewProps.swift in Sources */,
+				19E1CC152744739500BB0CDB /* InitialCollectionViewCell.swift in Sources */,
+				19E1CC25274473E400BB0CDB /* InitialCollectionViewCellProps.swift in Sources */,
 				19E1CBE22744687100BB0CDB /* AppDelegate.swift in Sources */,
 				19AFF700275D5E6A00F1F8B3 /* SceneDelegate.swift in Sources */,
 				19E1CC1D274473B700BB0CDB /* InitialViewController.swift in Sources */,
@@ -412,9 +412,9 @@
 			files = (
 				19E1CC22274473CE00BB0CDB /* DetailViewController.swift in Sources */,
 				19E1CBF92744687200BB0CDB /* ios_trab_finalTests.swift in Sources */,
-				19E1CC26274473E400BB0CDB /* InitialViewProps.swift in Sources */,
+				19E1CC26274473E400BB0CDB /* InitialCollectionViewCellProps.swift in Sources */,
 				19E1CC1A274473A500BB0CDB /* DetailView.swift in Sources */,
-				19E1CC162744739500BB0CDB /* InitialView.swift in Sources */,
+				19E1CC162744739500BB0CDB /* InitialCollectionViewCell.swift in Sources */,
 				19E1CC1E274473B700BB0CDB /* InitialViewController.swift in Sources */,
 				19E1CC2F2744746100BB0CDB /* ViewModel.swift in Sources */,
 				19E1CC2A274473F900BB0CDB /* DetailViewProps.swift in Sources */,
@@ -427,11 +427,11 @@
 			files = (
 				19E1CC1F274473B700BB0CDB /* InitialViewController.swift in Sources */,
 				19E1CC302744746100BB0CDB /* ViewModel.swift in Sources */,
-				19E1CC172744739500BB0CDB /* InitialView.swift in Sources */,
+				19E1CC172744739500BB0CDB /* InitialCollectionViewCell.swift in Sources */,
 				19E1CC2B274473F900BB0CDB /* DetailViewProps.swift in Sources */,
 				19E1CC1B274473A500BB0CDB /* DetailView.swift in Sources */,
 				19E1CC052744687300BB0CDB /* ios_trab_finalUITestsLaunchTests.swift in Sources */,
-				19E1CC27274473E400BB0CDB /* InitialViewProps.swift in Sources */,
+				19E1CC27274473E400BB0CDB /* InitialCollectionViewCellProps.swift in Sources */,
 				19E1CC23274473CE00BB0CDB /* DetailViewController.swift in Sources */,
 				19E1CC032744687300BB0CDB /* ios_trab_finalUITests.swift in Sources */,
 			);
