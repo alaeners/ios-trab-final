@@ -53,6 +53,7 @@ class InitialViewController: UIViewController {
     }
 
     private func setupViews() {
+        navigationController?.navigationBar.tintColor = .black
         view.backgroundColor = .white
         view.addSubview(loading)
         loading.startAnimating()
@@ -115,6 +116,12 @@ extension InitialViewController: UICollectionViewDataSource {
         let props = InitialCollectionViewCellProps(img: viewModel.setupData()[indexPath.row].backdropPath)
         cell.render(with: props)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let openDetailsMovie = DetailViewController()
+        navigationController?.pushViewController(openDetailsMovie, animated: true)
+        print("selected")
     }
 }
 
