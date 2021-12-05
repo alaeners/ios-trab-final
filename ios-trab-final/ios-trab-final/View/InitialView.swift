@@ -8,87 +8,57 @@
 import Foundation
 import UIKit
 
-class InitialView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource  {
-    // MARK: - Public Properties
-    public typealias MovieTap = () -> Void
-    public var onMovieTap: MovieTap?
+class InitialViewCell: UICollectionViewCell {
+    private enum Constants {
+        // MARK: contentView layout constants
+        static let contentViewCornerRadius: CGFloat = 4.0
+        
+        // MARK: movieImageView layout constants
+        static let imageHeight: CGFloat = 180.0
+        
+        // MARK: Generic layout constants
+        static let verticalSpacing: CGFloat = 8.0
+        static let horizontalPadding: CGFloat = 16.0
+        static let profileDescriptionVerticalPadding: CGFloat = 8.0
+    }
     
-    // MARK: - Private Properties
-    private let cellIdentifier = "cell"
-    private var properties: InitialViewProps
-    private lazy var movieImage = UIImage()
-    private lazy var movieDescription = String()
-    
-    private lazy var flowLayout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 60, height: 60)
-        return layout
+    private let movieImageView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.contentMode = .scaleAspectFill
+        return imageView
     }()
     
-    lazy var movieCollectionView: UICollectionView = {
-        let collection = UICollectionView(frame: frame, collectionViewLayout: flowLayout)
-        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        collection.backgroundColor = .gray
-        collection.delegate = self
-        collection.dataSource = self
-        return collection
-    }()
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        setupViews()
+        setupLayouts()
+    }
     
-    init(properties: InitialViewProps) {
-        self.properties = properties
-        super.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        render(properties: properties)
+    private func setupViews() {
+        contentView.clipsToBounds = true
+        contentView.layer.cornerRadius = Constants.contentViewCornerRadius
+        contentView.backgroundColor = .white
+        
+        contentView.addSubview(movieImageView)
+    }
+    
+    private func setupLayouts() {
+        movieImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Layout constraints for `movieImageView`
+        NSLayoutConstraint.activate([
+            movieImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            movieImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            movieImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            movieImageView.heightAnchor.constraint(equalToConstant: Constants.imageHeight)
+        ])
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    // MARK: - Render
-    public func render(properties: InitialViewProps) {
-        setupView()
-    }
-    
-    // MARK: - Constants
-    private enum InitialViewConstants {
-        static let numberOfLines = 0
-    }
-    
-    // MARK: - Private Methods
-    private func setupView() {
-        setupHierarchy()
-        setupStyle()
-        setupConstraints()
-    }
-    
-    private func setupHierarchy() {
-        addSubview(movieCollectionView)
-    }
-    
-    private func setupStyle() {}
-    private func setupConstraints() {        
-    }
-    
-    @objc func goMovieDetails() {
-        onMovieTap?()
-    }
-}
-
-extension InitialView {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
-        myCell.backgroundColor = .blue
-        return myCell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("User tapped on item \(indexPath.row)")
+    func setup(with properties: InitialViewProps) {
+        movieImageView.image = UIImage(named: properties.image)
     }
 }

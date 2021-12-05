@@ -10,37 +10,28 @@ import Alamofire
 import UIKit
 
 class InitialViewController: UIViewController {
-    let viewModel: ViewModel
-//    let initialView: InitialView
-    private let cellIdentifier = "cell"
-    private var widthCollection = CGFloat()
-    private var heightCollection = CGFloat()
+    var viewModel: ViewModel
     
-    //temporario ate eu entender o que ta pegando
-    private lazy var flowLayout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0,
-                                           left: 0,
-                                           bottom: 0,
-                                           right: 0)
-        layout.minimumInteritemSpacing = 1
-        layout.itemSize = CGSize(width: widthCollection,
-                                 height: heightCollection)
-        return layout
+    private let loading: UIActivityIndicatorView = {
+        let load = UIActivityIndicatorView()
+        load.color = .blue
+        return load
     }()
     
-    lazy var movieCollectionView: UICollectionView = {
-        let collection = UICollectionView(frame: view.frame, collectionViewLayout: flowLayout)
-        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        collection.backgroundColor = .darkGray
-        collection.delegate = self
-        collection.dataSource = self
-        return collection
+    private let movieCollectionView: UICollectionView = {
+        let viewLayout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
+        collectionView.backgroundColor = .green
+        return collectionView
     }()
     
-    init(vm: ViewModel) {
-        viewModel = vm
-//        initialView = InitialView(properties: viewModel.getInitialProps())
+    private enum LayoutConstant {
+        static let spacing: CGFloat = 16.0
+        static let itemHeight: CGFloat = 300.0
+    }
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -50,63 +41,112 @@ class InitialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchData()
-    }
-    
-    func setupView(movieData: [MovieData]) {
-        view.backgroundColor = .gray
+        view.backgroundColor = .green
         title = "Top Movies"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        widthCollection = ((view.frame.size.width - 10)/2)
-        heightCollection = (widthCollection * 1.5)
+        
+        setupViews()
+        setupLayouts()
+        self.movieCollectionView.reloadData()
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    
+        viewModel.fetchMovies(movieID: "") { movieData, error in
+            self.movieCollectionView.reloadData()
+        }
+    }
+    
+    
+    private func setupViews() {
+        view.backgroundColor = .white
+        view.addSubview(loading)
+        loading.startAnimating()
+        loading.backgroundColor = .darkGray
         view.addSubview(movieCollectionView)
         
-        
-        //        view.addSubview(initialView)
-        //
-        //        initialView.onMovieTap = {
-        //            self.navigationController?.pushViewController(DetailViewController(), animated: true)
-        //        }
+        movieCollectionView.dataSource = self
+        movieCollectionView.delegate = self
+        movieCollectionView.register(InitialViewCell.self, forCellWithReuseIdentifier: "cell")
+        movieCollectionView.reloadData()
     }
     
-    func fetchData() {
+    private func setupLayouts() {
+        movieCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        loading.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Layout constraints for `collectionView`
+        NSLayoutConstraint.activate([
+            movieCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            movieCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            movieCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            movieCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            loading.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            loading.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+        ])
+    }
+    
+    private func populateMovies() {
         viewModel.fetchMovies(movieID: "") { movieData, error in
-            DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.sync { [weak self] in
                 guard let safeSelf = self else { return }
-                guard let safeModel = safeSelf.viewModel.setupData(model: movieData) else { return }
-                safeSelf.setupView(movieData: safeModel)
                 safeSelf.movieCollectionView.reloadData()
             }
         }
     }
+    
+    func showError() {
+        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(ac, animated: true)
+    }
 }
 
-extension InitialViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.moviesData?.count ?? 0
+extension InitialViewController: UICollectionViewDataSource {
+   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.setupData().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
-        myCell.backgroundColor = .blue
-        return myCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! InitialViewCell
+        
+        let props = InitialViewProps(img: viewModel.setupData()[indexPath.row].backdropPath)
+        cell.setup(with: props)
+        cell.backgroundColor = .red
+        return cell
+    }
+}
+
+extension InitialViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = itemWidth(for: view.frame.width, spacing: LayoutConstant.spacing)
+        
+        return CGSize(width: width, height: LayoutConstant.itemHeight)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("User tapped on item \(indexPath.row)")
+    func itemWidth(for width: CGFloat, spacing: CGFloat) -> CGFloat {
+        let itemsInRow: CGFloat = 2
+        
+        let totalSpacing: CGFloat = 2 * spacing + (itemsInRow - 1) * spacing
+        let finalWidth = (width - totalSpacing) / itemsInRow
+        
+        return floor(finalWidth)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: LayoutConstant.spacing, left: LayoutConstant.spacing, bottom: LayoutConstant.spacing, right: LayoutConstant.spacing)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return LayoutConstant.spacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return LayoutConstant.spacing
     }
 }

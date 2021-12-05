@@ -10,7 +10,7 @@ import Foundation
 class InitialViewProps {
     var image: String
     
-    init(img: String) {
+    init(img: String = "") {
         image = img
     }
 }
