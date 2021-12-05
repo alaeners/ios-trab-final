@@ -49,14 +49,9 @@ class InitialViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    
-//        viewModel.fetchMovies(movieID: "") { movieData, error in
-//            self.movieCollectionView.reloadData()
-//        }
         populateMovies()
     }
-    
-    
+
     private func setupViews() {
         view.backgroundColor = .white
         view.addSubview(loading)
@@ -66,7 +61,7 @@ class InitialViewController: UIViewController {
         
         movieCollectionView.dataSource = self
         movieCollectionView.delegate = self
-        movieCollectionView.register(InitialCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        movieCollectionView.register(InitialCollectionViewCell.self, forCellWithReuseIdentifier: InitialCollectionViewCell.identifier)
     }
     
     private func setupLayouts() {
@@ -113,7 +108,7 @@ extension InitialViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! InitialCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InitialCollectionViewCell.identifier, for: indexPath) as! InitialCollectionViewCell
         
         let props = InitialCollectionViewCellProps(img: viewModel.setupData()[indexPath.row].backdropPath)
         cell.setup(with: props)

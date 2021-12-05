@@ -8,7 +8,18 @@
 import Foundation
 import UIKit
 
+protocol ReusableView: AnyObject {
+    static var identifier: String { get }
+}
+
+extension InitialCollectionViewCell: ReusableView {
+    static var identifier: String {
+        return String(describing: self)
+    }
+}
+
 class InitialCollectionViewCell: UICollectionViewCell {
+    
     private enum Constants {
         // MARK: contentView layout constants
         static let contentViewCornerRadius: CGFloat = 4.0
