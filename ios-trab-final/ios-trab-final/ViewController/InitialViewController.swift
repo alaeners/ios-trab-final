@@ -21,12 +21,12 @@ class InitialViewController: UIViewController {
     private let movieCollectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
-        collectionView.backgroundColor = .green
+        collectionView.backgroundColor = .darkGray
         return collectionView
     }()
     
     private enum LayoutConstant {
-        static let spacing: CGFloat = 16.0
+        static let spacing: CGFloat = 1.0
         static let itemHeight: CGFloat = 300.0
     }
     
@@ -85,7 +85,7 @@ class InitialViewController: UIViewController {
     }
     
     private func populateMovies() {
-        viewModel.fetchMovies(movieID: "") { movieData, error in
+        viewModel.fetchAllMovies { movieData, error in
             DispatchQueue.main.async { [weak self] in
                 if error != nil  { self?.showError() }
                 guard let safeSelf = self else { return }
@@ -106,20 +106,20 @@ class InitialViewController: UIViewController {
 
 extension InitialViewController: UICollectionViewDataSource {
    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.setupData().count
+        return viewModel.setupAllMovies().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InitialCollectionViewCell.identifier,
                                                       for: indexPath) as! InitialCollectionViewCell
         
-        let props = InitialCollectionViewCellProps(img: viewModel.setupData()[indexPath.row].backdropPath)
+        let props = InitialCollectionViewCellProps(imgPosterPath: viewModel.setupAllMovies()[indexPath.row].posterPath)
         cell.render(with: props)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let movieID = String(viewModel.setupData()[indexPath.row].id)
+        let movieID = String(viewModel.setupAllMovies()[indexPath.row].id)
         let openDetailsMovie = DetailViewController(viewModel: viewModel, movieID: movieID)
         navigationController?.pushViewController(openDetailsMovie, animated: true)
         print("selected")

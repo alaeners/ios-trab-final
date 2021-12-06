@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.frame = UIScreen.main.bounds
 
-        let viewController = InitialViewController(viewModel: ViewModel(movieID: ""))
+        let viewController = InitialViewController(viewModel: ViewModel())
         let navigationController = UINavigationController(rootViewController: viewController)
 
         window?.rootViewController = navigationController

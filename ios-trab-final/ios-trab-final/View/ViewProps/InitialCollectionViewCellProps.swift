@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 class InitialCollectionViewCellProps {
-    var image: String
+    var imageBasePath: String = "https://image.tmdb.org/t/p/w500"
     
-    init(img: String = "") {
-        image = img
+    init(imgPosterPath: String) {
+        imageBasePath = "\(imageBasePath)\(imgPosterPath)"
     }
 }

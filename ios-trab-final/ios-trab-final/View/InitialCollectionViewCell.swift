@@ -41,6 +41,17 @@ class InitialCollectionViewCell: UICollectionViewCell {
         setupLayouts()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func render(with properties: InitialCollectionViewCellProps) {
+        let url = URL(string: properties.imageBasePath)
+        if let data = try? Data(contentsOf: url!) {
+          movieImageView.image = UIImage(data: data)
+        }
+    }
+    
     private func setupViews() {
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = Constants.contentViewCornerRadius
@@ -58,13 +69,5 @@ class InitialCollectionViewCell: UICollectionViewCell {
             movieImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             movieImageView.heightAnchor.constraint(equalToConstant: Constants.imageHeight)
         ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func render(with properties: InitialCollectionViewCellProps) {
-        movieImageView.image = UIImage(named: properties.image)
     }
 }

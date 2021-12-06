@@ -24,8 +24,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
-        title = "Top Movies"
+        view.backgroundColor = .darkGray
         setupViews()
     }
     
@@ -37,16 +36,18 @@ class DetailViewController: UIViewController {
     private func setupViews() {
         navigationController?.navigationBar.tintColor = .black
         view.backgroundColor = .white
+        view.addSubview(DetailView())
     }
     
     private func showMovieDetails(movieID: String) {
-        viewModel.fetchMovies(movieID: movieID) { movieData, error in
-            DispatchQueue.main.async { [weak self] in
-                if error != nil  { self?.showError() }
-                guard let safeSelf = self else { return }
-                safeSelf.setupViews()
-            }
-        }
+//        viewModel.fetchMoviesPerID(movieID: movieID) { movieData, error in
+////            DispatchQueue.main.async { [weak self] in
+////                if error != nil  { self?.showError() }
+////                guard let safeSelf = self else { return }
+////                safeSelf.viewModel.getDetailsProps(moviePerID: movieData)
+////                safeSelf.setupViews()
+////            }
+//        }
     }
     
     func showError() {
