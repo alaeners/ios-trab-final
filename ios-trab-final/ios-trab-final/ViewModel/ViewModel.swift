@@ -31,7 +31,7 @@ class ViewModel {
         }
     }
     
-    func fetchMoviesPerID(movieID: String, _ callBack: @escaping (MovieData?, String?) -> MovieData) {
+    func fetchMoviesPerID(movieID: String, _ callBack: @escaping (MovieDataDetails?, String?) -> Void) {
         baseURL = "https://api.themoviedb.org/3/movie/\(movieID)\(token)"
         
         Alamofire.request(baseURL).responseJSON { response in
@@ -39,7 +39,7 @@ class ViewModel {
             
             switch response.result {
             case .success:
-                do { self.moviePerID = try JSONDecoder().decode(MovieData.self, from: data) } catch { print(error) }
+                do { self.moviePerID = try JSONDecoder().decode(MovieDataDetails.self, from: data) } catch { print(error) }
                 callBack(self.moviePerID, nil)
             case .failure(let error):
                 callBack(nil, error.localizedDescription)

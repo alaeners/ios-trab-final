@@ -40,14 +40,14 @@ class DetailViewController: UIViewController {
     }
     
     private func showMovieDetails(movieID: String) {
-//        viewModel.fetchMoviesPerID(movieID: movieID) { movieData, error in
-////            DispatchQueue.main.async { [weak self] in
-////                if error != nil  { self?.showError() }
-////                guard let safeSelf = self else { return }
-////                safeSelf.viewModel.getDetailsProps(moviePerID: movieData)
-////                safeSelf.setupViews()
-////            }
-//        }
+        viewModel.fetchMoviesPerID(movieID: movieID) { movieData, error in
+//            DispatchQueue.main.async { [weak self] in
+//                if error != nil  { self?.showError() }
+//                guard let safeSelf = self else { return }
+//                safeSelf.viewModel.getDetailsProps(moviePerID: movieData)
+//                safeSelf.setupViews()
+//            }
+        }
     }
     
     func showError() {
