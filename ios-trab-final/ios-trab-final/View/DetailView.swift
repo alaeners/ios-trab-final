@@ -9,21 +9,50 @@ import Foundation
 import UIKit
 
 class DetailView: UIView {
+    var properties: DetailViewProps
     lazy var movieTitle: UILabel = {
         let title = UILabel()
         title.font = .boldSystemFont(ofSize: 24.0)
-        title.backgroundColor = .red
+        title.textColor = .black
+        title.numberOfLines = 0
         return title
     }()
     
-    lazy var moviewStackViewH = UIStackView()
-    lazy var moviewStackViewV = UIStackView()
-    lazy var movieImage = UIImageView()
-    lazy var movieYear = UILabel()
-    lazy var movieRating = UILabel()
-    lazy var movieDescription = UILabel()
+    lazy var movieImage: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     
-    override init(frame: CGRect) {
+    lazy var movieYear: UILabel = {
+        let year = UILabel()
+        year.font = .boldSystemFont(ofSize: 20.0)
+        year.textColor = .black
+        year.numberOfLines = 0
+        year.textAlignment = .left
+        return year
+    }()
+    
+    lazy var movieRating: UILabel = {
+        let rating = UILabel()
+        rating.font = .boldSystemFont(ofSize: 20.0)
+        rating.textColor = .black
+        rating.numberOfLines = 0
+        rating.textAlignment = .left
+        return rating
+    }()
+    
+    lazy var movieDescription: UILabel = {
+        let description = UILabel()
+        description.font = .italicSystemFont(ofSize: 16.0)
+        description.textColor = .black
+        description.numberOfLines = 0
+        description.textAlignment = .justified
+        return description
+    }()
+    
+    init(properties: DetailViewProps) {
+        self.properties = properties
         super.init(frame: .zero)
         setupViews()
         setupLayouts()
@@ -35,10 +64,15 @@ class DetailView: UIView {
     
     func render(with properties: DetailViewProps) {
         movieTitle.text = properties.title
-//        movieImage.image = properties.image
-//        movieYear.text = properties.year
-//        movieRating.text = properties.rating
-//        movieDescription.text = properties.description
+        movieImage.image = properties.image
+        movieYear.text = replaceOcurrence(text: properties.year)
+        movieRating.text = properties.rating
+        movieDescription.text = properties.description
+    }
+    
+    func replaceOcurrence(text: String) -> String {
+        let newText = text.dropLast(6)
+        return String(newText)
     }
     
     private func setupViews() {
@@ -46,32 +80,40 @@ class DetailView: UIView {
         movieImage.layer.cornerRadius = 4.0
         backgroundColor = .white
         addSubview(movieTitle)
-//        addSubview(moviewStackViewH)
-//        moviewStackViewH.addSubview(movieImage)
-//        moviewStackViewH.addSubview(moviewStackViewV)
-//        moviewStackViewV.addSubview(movieYear)
-//        moviewStackViewV.addSubview(movieRating)
-//        addSubview(movieDescription)
+        addSubview(movieImage)
+        addSubview(movieYear)
+        addSubview(movieRating)
+        addSubview(movieDescription)
     }
     
     private func setupLayouts() {
         movieTitle.translatesAutoresizingMaskIntoConstraints = false
-//        movieImage.translatesAutoresizingMaskIntoConstraints = false
+        movieImage.translatesAutoresizingMaskIntoConstraints = false
+        movieYear.translatesAutoresizingMaskIntoConstraints = false
+        movieRating.translatesAutoresizingMaskIntoConstraints = false
+        movieDescription.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-//            movieTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.0),
-//            movieTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16.0),
-            movieTitle.topAnchor.constraint(equalTo: topAnchor, constant: 16.0),
-            movieTitle.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 16.0),
+            topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            movieTitle.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16.0),
             movieTitle.leftAnchor.constraint(equalTo: leftAnchor, constant: 16.0),
-            movieTitle.rightAnchor.constraint(equalTo: rightAnchor, constant: 16.0)
+
+            movieImage.topAnchor.constraint(equalTo: movieTitle.bottomAnchor, constant: 16.0),
+            movieImage.heightAnchor.constraint(equalToConstant: 300.0),
+            movieImage.widthAnchor.constraint(equalToConstant: 200.0),
+            movieImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 16.0),
+
+            movieYear.topAnchor.constraint(equalTo: movieTitle.bottomAnchor, constant: 16.0),
+            movieYear.leftAnchor.constraint(equalTo: movieImage.rightAnchor, constant: 16.0),
+            
+            movieRating.topAnchor.constraint(equalTo: movieYear.bottomAnchor, constant: 16.0),
+            movieRating.leftAnchor.constraint(equalTo: movieImage.rightAnchor, constant: 16.0),
+
+            movieDescription.topAnchor.constraint(equalTo: movieImage.bottomAnchor, constant: 16.0),
+            movieDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.0),
+            movieDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.0),
         ])
-        
-//        NSLayoutConstraint.activate([
-//            movieImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            movieImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            movieImage.topAnchor.constraint(equalTo: topAnchor),
-//            movieImage.heightAnchor.constraint(equalToConstant: 300)
-//        ])
     }
 }

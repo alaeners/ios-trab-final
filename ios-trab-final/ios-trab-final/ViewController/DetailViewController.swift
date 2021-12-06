@@ -11,7 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
     var viewModel: ViewModel
     var movieID: String
-    var properties = DetailViewProps()
+    var detailsView = DetailView(properties: DetailViewProps())
     
     init(viewModel: ViewModel, movieID: String) {
         self.viewModel = viewModel
@@ -25,19 +25,28 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .darkGray
+        configureView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showMovieDetails()
     }
+    
+    private func configureView() {
+        detailsView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(detailsView)
+        detailsView.render(with: DetailViewProps())
+        
+        detailsView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16.0).isActive = true
+        detailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        detailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        detailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    }
 
-    private func setupViews() {
+    private func setupViews(properties: DetailViewProps) {
         navigationController?.navigationBar.tintColor = .black
         view.backgroundColor = .white
-        let detailsView = DetailView()
-        view.addSubview(detailsView)
         detailsView.render(with: properties)
     }
     
@@ -47,8 +56,7 @@ class DetailViewController: UIViewController {
                 if error != nil  { self?.showError() }
                 guard let safeSelf = self else { return }
                 guard let safeData = movieData else { return }
-                safeSelf.properties = safeSelf.viewModel.getDetailsProps(moviePerID: safeData)
-                safeSelf.setupViews()
+                safeSelf.setupViews(properties: safeSelf.viewModel.getDetailsProps(moviePerID: safeData))
             }
         }
     }
