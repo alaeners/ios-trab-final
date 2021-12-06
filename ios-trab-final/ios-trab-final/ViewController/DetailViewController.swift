@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
     var viewModel: ViewModel
     var movieID: String
+    var properties = DetailViewProps()
     
     init(viewModel: ViewModel, movieID: String) {
         self.viewModel = viewModel
@@ -25,28 +26,30 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .darkGray
-        setupViews()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        showMovieDetails(movieID: movieID)
+        showMovieDetails()
     }
 
     private func setupViews() {
         navigationController?.navigationBar.tintColor = .black
         view.backgroundColor = .white
-        view.addSubview(DetailView())
+        let detailsView = DetailView()
+        view.addSubview(detailsView)
+        detailsView.render(with: properties)
     }
     
-    private func showMovieDetails(movieID: String) {
+    private func showMovieDetails() {
         viewModel.fetchMoviesPerID(movieID: movieID) { movieData, error in
-//            DispatchQueue.main.async { [weak self] in
-//                if error != nil  { self?.showError() }
-//                guard let safeSelf = self else { return }
-//                safeSelf.viewModel.getDetailsProps(moviePerID: movieData)
-//                safeSelf.setupViews()
-//            }
+            DispatchQueue.main.async { [weak self] in
+                if error != nil  { self?.showError() }
+                guard let safeSelf = self else { return }
+                guard let safeData = movieData else { return }
+                safeSelf.properties = safeSelf.viewModel.getDetailsProps(moviePerID: safeData)
+                safeSelf.setupViews()
+            }
         }
     }
     
@@ -56,6 +59,6 @@ class DetailViewController: UIViewController {
                                    preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(ac, animated: true)
-        showMovieDetails(movieID: movieID)
+        showMovieDetails()
     }
 }
