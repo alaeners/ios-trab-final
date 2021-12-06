@@ -112,14 +112,14 @@ extension InitialViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InitialCollectionViewCell.identifier,
                                                       for: indexPath) as! InitialCollectionViewCell
-        
-        let props = InitialCollectionViewCellProps(image: viewModel.imageConverted(posterPath: viewModel.setupAllMovies()[indexPath.row].posterPath) ?? UIImage())
+        let imageModel =  viewModel.imageConverted(posterPath: viewModel.setupAllMovies()[indexPath.row].posterPath ?? "")
+        let props = InitialCollectionViewCellProps(image: imageModel ?? UIImage())
         cell.render(with: props)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let movieID = String(viewModel.setupAllMovies()[indexPath.row].id)
+        let movieID = String(viewModel.setupAllMovies()[indexPath.row].id ?? 0)
         let openDetailsMovie = DetailViewController(viewModel: viewModel, movieID: movieID)
         navigationController?.pushViewController(openDetailsMovie, animated: true)
         print("selected")

@@ -61,7 +61,7 @@ class ViewModel {
     }
     
     func getInitialProps(index: Int) -> InitialCollectionViewCellProps {
-        guard let safeImage = imageConverted(posterPath: setupAllMovies()[index].posterPath) else { return InitialCollectionViewCellProps() }
+        guard let safeImage = imageConverted(posterPath: setupAllMovies()[index].posterPath ?? "") else { return InitialCollectionViewCellProps() }
         return InitialCollectionViewCellProps(image: safeImage)
     }
     
