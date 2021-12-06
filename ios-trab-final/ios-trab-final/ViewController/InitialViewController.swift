@@ -14,19 +14,19 @@ class InitialViewController: UIViewController {
     
     private let loading: UIActivityIndicatorView = {
         let load = UIActivityIndicatorView()
-        load.color = .blue
+        load.color = .red
         return load
     }()
     
     private let movieCollectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
-        collectionView.backgroundColor = .darkGray
+        collectionView.backgroundColor = .lightGray
         return collectionView
     }()
     
     private enum LayoutConstant {
-        static let spacing: CGFloat = 1.0
+        static let spacing: CGFloat = 0.0
         static let itemHeight: CGFloat = 300.0
     }
     
@@ -55,10 +55,8 @@ class InitialViewController: UIViewController {
     private func setupViews() {
         navigationController?.navigationBar.tintColor = .black
         view.backgroundColor = .white
-        view.addSubview(loading)
-        loading.startAnimating()
-        loading.backgroundColor = .darkGray
         view.addSubview(movieCollectionView)
+        movieCollectionView.addSubview(loading)
         
         movieCollectionView.dataSource = self
         movieCollectionView.delegate = self
@@ -85,10 +83,12 @@ class InitialViewController: UIViewController {
     }
     
     private func populateMovies() {
+        loading.startAnimating()
         viewModel.fetchAllMovies { movieData, error in
             DispatchQueue.main.async { [weak self] in
                 if error != nil  { self?.showError() }
                 guard let safeSelf = self else { return }
+                safeSelf.loading.stopAnimating()
                 safeSelf.movieCollectionView.reloadData()
             }
         }
