@@ -119,7 +119,8 @@ extension InitialViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let openDetailsMovie = DetailViewController()
+        let movieID = String(viewModel.setupData()[indexPath.row].id)
+        let openDetailsMovie = DetailViewController(viewModel: viewModel, movieID: movieID)
         navigationController?.pushViewController(openDetailsMovie, animated: true)
         print("selected")
     }
