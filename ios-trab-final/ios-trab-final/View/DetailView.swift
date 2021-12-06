@@ -12,9 +12,11 @@ class DetailView: UIView {
     var properties: DetailViewProps
     lazy var movieTitle: UILabel = {
         let title = UILabel()
-        title.font = .boldSystemFont(ofSize: 24.0)
+        title.font = .boldSystemFont(ofSize: 32.0)
         title.textColor = .black
         title.numberOfLines = 0
+        title.textAlignment = .left
+        title.lineBreakMode = .byWordWrapping
         return title
     }()
     
@@ -35,7 +37,7 @@ class DetailView: UIView {
     
     lazy var movieRating: UILabel = {
         let rating = UILabel()
-        rating.font = .boldSystemFont(ofSize: 20.0)
+        rating.font = .systemFont(ofSize: 20.0)
         rating.textColor = .black
         rating.numberOfLines = 0
         rating.textAlignment = .left
@@ -98,18 +100,20 @@ class DetailView: UIView {
             bottomAnchor.constraint(equalTo: bottomAnchor),
             
             movieTitle.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16.0),
-            movieTitle.leftAnchor.constraint(equalTo: leftAnchor, constant: 16.0),
+//            movieTitle.leftAnchor.constraint(equalTo: leftAnchor, constant: 16.0),
+            movieTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.0),
+            movieTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.0),
 
-            movieImage.topAnchor.constraint(equalTo: movieTitle.bottomAnchor, constant: 16.0),
+            movieImage.topAnchor.constraint(equalTo: movieTitle.bottomAnchor, constant: 32.0),
             movieImage.heightAnchor.constraint(equalToConstant: 300.0),
             movieImage.widthAnchor.constraint(equalToConstant: 200.0),
-            movieImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 16.0),
+            movieImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 32.0),
 
-            movieYear.topAnchor.constraint(equalTo: movieTitle.bottomAnchor, constant: 16.0),
-            movieYear.leftAnchor.constraint(equalTo: movieImage.rightAnchor, constant: 16.0),
+            movieYear.topAnchor.constraint(equalTo: movieImage.topAnchor),
+            movieYear.leftAnchor.constraint(equalTo: movieImage.rightAnchor, constant: 24.0),
             
-            movieRating.topAnchor.constraint(equalTo: movieYear.bottomAnchor, constant: 16.0),
-            movieRating.leftAnchor.constraint(equalTo: movieImage.rightAnchor, constant: 16.0),
+            movieRating.topAnchor.constraint(equalTo: movieYear.bottomAnchor, constant: 8.0),
+            movieRating.leftAnchor.constraint(equalTo: movieImage.rightAnchor, constant: 24.0),
 
             movieDescription.topAnchor.constraint(equalTo: movieImage.bottomAnchor, constant: 16.0),
             movieDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.0),
