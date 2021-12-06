@@ -15,13 +15,14 @@ class InitialViewController: UIViewController {
     private let loading: UIActivityIndicatorView = {
         let load = UIActivityIndicatorView()
         load.color = .red
+        load.style = .large
         return load
     }()
     
     private let movieCollectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
-        collectionView.backgroundColor = .lightGray
+        collectionView.backgroundColor = .black
         return collectionView
     }()
     
@@ -41,8 +42,9 @@ class InitialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
         title = "Top Movies"
+        navigationController?.navigationBar.tintColor = .black
+        view.backgroundColor = .black
         setupViews()
         setupLayouts()
     }
@@ -53,8 +55,6 @@ class InitialViewController: UIViewController {
     }
 
     private func setupViews() {
-        navigationController?.navigationBar.tintColor = .black
-        view.backgroundColor = .white
         view.addSubview(movieCollectionView)
         movieCollectionView.addSubview(loading)
         

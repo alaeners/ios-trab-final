@@ -45,8 +45,8 @@ class DetailViewController: UIViewController {
     }
 
     private func setupViews(properties: DetailViewProps) {
-        navigationController?.navigationBar.tintColor = .black
-        view.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = .white
+        view.backgroundColor = .black
         detailsView.render(with: properties)
     }
     

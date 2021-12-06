@@ -25,6 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let viewController = InitialViewController(viewModel: ViewModel())
         let navigationController = UINavigationController(rootViewController: viewController)
 
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

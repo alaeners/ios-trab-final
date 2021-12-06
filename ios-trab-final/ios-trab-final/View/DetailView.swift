@@ -13,7 +13,7 @@ class DetailView: UIView {
     lazy var movieTitle: UILabel = {
         let title = UILabel()
         title.font = .boldSystemFont(ofSize: 32.0)
-        title.textColor = .black
+        title.textColor = .white
         title.numberOfLines = 0
         title.textAlignment = .left
         title.lineBreakMode = .byWordWrapping
@@ -29,7 +29,7 @@ class DetailView: UIView {
     lazy var movieYear: UILabel = {
         let year = UILabel()
         year.font = .boldSystemFont(ofSize: 20.0)
-        year.textColor = .black
+        year.textColor = .white
         year.numberOfLines = 0
         year.textAlignment = .left
         return year
@@ -38,7 +38,7 @@ class DetailView: UIView {
     lazy var movieRating: UILabel = {
         let rating = UILabel()
         rating.font = .systemFont(ofSize: 20.0)
-        rating.textColor = .black
+        rating.textColor = .white
         rating.numberOfLines = 0
         rating.textAlignment = .left
         return rating
@@ -47,7 +47,7 @@ class DetailView: UIView {
     lazy var movieDescription: UILabel = {
         let description = UILabel()
         description.font = .italicSystemFont(ofSize: 16.0)
-        description.textColor = .black
+        description.textColor = .white
         description.numberOfLines = 0
         description.textAlignment = .justified
         return description
@@ -80,7 +80,7 @@ class DetailView: UIView {
     private func setupViews() {
         clipsToBounds = true
         movieImage.layer.cornerRadius = 4.0
-        backgroundColor = .white
+        backgroundColor = .black
         addSubview(movieTitle)
         addSubview(movieImage)
         addSubview(movieYear)
