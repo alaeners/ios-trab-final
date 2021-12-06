@@ -13,7 +13,7 @@ class ViewModel {
     var baseURL = "https://api.themoviedb.org/3/movie/"
     var imageBasePath: String = "https://image.tmdb.org/t/p/w500"
     var movieModel: MovieModel? = nil
-    var moviePerID: MovieData? = nil
+    var moviePerID: MovieDataDetails? = nil
     
     func fetchAllMovies(_ callBack: @escaping ([MovieData]?, String?) -> Void) {
         baseURL = "https://api.themoviedb.org/3/movie/top_rated\(token)"
@@ -65,7 +65,7 @@ class ViewModel {
         return InitialCollectionViewCellProps(image: safeImage)
     }
     
-    func getDetailsProps(moviePerID: MovieData) -> DetailViewProps {
+    func getDetailsProps(moviePerID: MovieDataDetails) -> DetailViewProps {
         let rateConverted = String(moviePerID.voteAverage)
         guard let safeImage = imageConverted(posterPath: moviePerID.posterPath) else { return DetailViewProps() }
         return DetailViewProps(movieImg: safeImage,

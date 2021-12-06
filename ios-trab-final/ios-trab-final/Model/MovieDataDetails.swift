@@ -7,10 +7,10 @@
 
 import Foundation
 
-class MovieDataDetails {
+class MovieDataDetails: Decodable {
     let adult: Bool
     let backdropPath: String
-    let belongsToCollection: NSNull
+    let belongsToCollection: Bool?
     let budget: Int
     let genres: [Genre]
     let homepage: String
@@ -27,8 +27,28 @@ class MovieDataDetails {
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case adult
+        case backdropPath = "backdrop_path"
+        case belongsToCollection = "belongs_to_collection"
+        case budget, genres, homepage, id
+        case imdbID = "imdb_id"
+        case originalLanguage = "original_language"
+        case originalTitle = "original_title"
+        case overview, popularity
+        case posterPath = "poster_path"
+        case productionCompanies = "production_companies"
+        case productionCountries = "production_countries"
+        case releaseDate = "release_date"
+        case revenue, runtime
+        case spokenLanguages = "spoken_languages"
+        case status, tagline, title, video
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
+    }
 
-    init(adult: Bool, backdropPath: String, belongsToCollection: NSNull, budget: Int, genres: [Genre], homepage: String, id: Int, imdbID: String, originalLanguage: String, originalTitle: String, overview: String, popularity: Double, posterPath: String, productionCompanies: [ProductionCompany], productionCountries: [ProductionCountry], releaseDate: String, revenue: Int, runtime: Int, spokenLanguages: [SpokenLanguage], status: String, tagline: String, title: String, video: Bool, voteAverage: Double, voteCount: Int) {
+    init(adult: Bool, backdropPath: String, belongsToCollection: Bool, budget: Int, genres: [Genre], homepage: String, id: Int, imdbID: String, originalLanguage: String, originalTitle: String, overview: String, popularity: Double, posterPath: String, productionCompanies: [ProductionCompany], productionCountries: [ProductionCountry], releaseDate: String, revenue: Int, runtime: Int, spokenLanguages: [SpokenLanguage], status: String, tagline: String, title: String, video: Bool, voteAverage: Double, voteCount: Int) {
         self.adult = adult
         self.backdropPath = backdropPath
         self.belongsToCollection = belongsToCollection
