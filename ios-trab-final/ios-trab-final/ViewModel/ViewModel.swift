@@ -11,6 +11,7 @@ import Alamofire
 class ViewModel {
     let token = "?api_key=a2476b7947306191bba091a7f75eb5eb"
     var baseURL = "https://api.themoviedb.org/3/movie/"
+    var imageBasePath: String = "https://image.tmdb.org/t/p/w500"
     var movieModel: MovieModel? = nil
     var moviePerID: MovieData? = nil
     
@@ -51,14 +52,24 @@ class ViewModel {
         return safeMoviesData
     }
     
+    func imageConverted(posterPath: String) -> UIImage? {
+        guard let safeUrl = URL(string: "\(imageBasePath)\(posterPath)") else { return nil }
+        if let data = try? Data(contentsOf: safeUrl) {
+            return UIImage(data: data)
+        }
+        return nil
+    }
+    
     func getInitialProps(index: Int) -> InitialCollectionViewCellProps {
-        InitialCollectionViewCellProps(imgPosterPath: setupAllMovies()[index].posterPath)
+        guard let safeImage = imageConverted(posterPath: setupAllMovies()[index].posterPath) else { return InitialCollectionViewCellProps() }
+        return InitialCollectionViewCellProps(image: safeImage)
     }
     
     func getDetailsProps(moviePerID: MovieData) -> DetailViewProps {
         let rateConverted = String(moviePerID.voteAverage)
-        return DetailViewProps(movieImg: moviePerID.posterPath,
-                               moveiTitle: moviePerID.title,
+        guard let safeImage = imageConverted(posterPath: moviePerID.posterPath) else { return DetailViewProps() }
+        return DetailViewProps(movieImg: safeImage,
+                               movieTitle: moviePerID.title,
                                movieDesc: moviePerID.overview,
                                movieYear: moviePerID.releaseDate,
                                movieRating: "\(rateConverted)/10")

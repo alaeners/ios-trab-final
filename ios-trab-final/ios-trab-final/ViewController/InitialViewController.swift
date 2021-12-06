@@ -113,7 +113,7 @@ extension InitialViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InitialCollectionViewCell.identifier,
                                                       for: indexPath) as! InitialCollectionViewCell
         
-        let props = InitialCollectionViewCellProps(imgPosterPath: viewModel.setupAllMovies()[indexPath.row].posterPath)
+        let props = InitialCollectionViewCellProps(image: viewModel.imageConverted(posterPath: viewModel.setupAllMovies()[indexPath.row].posterPath) ?? UIImage())
         cell.render(with: props)
         return cell
     }

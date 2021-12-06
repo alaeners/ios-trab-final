@@ -13,7 +13,7 @@ class DetailView: UIView {
     lazy var movieImage = UIImageView()
     lazy var movieYear = UILabel()
     lazy var movieClass = UILabel()
-    lazy var movieDescription = String()
+    lazy var movieDescription = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -27,7 +27,9 @@ class DetailView: UIView {
     
     func render(with properties: DetailViewProps) {
         movieTitle.text = properties.title
-        movieImage.image = UIImage(contentsOfFile: properties.image)
+        movieImage.image = properties.image
+        movieYear.text = properties.year
+        movieDescription.text = properties.description
     }
     
     private func setupViews() {

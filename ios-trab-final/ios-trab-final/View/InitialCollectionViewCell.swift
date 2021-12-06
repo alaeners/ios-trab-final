@@ -46,10 +46,7 @@ class InitialCollectionViewCell: UICollectionViewCell {
     }
     
     func render(with properties: InitialCollectionViewCellProps) {
-        let url = URL(string: properties.imageBasePath)
-        if let data = try? Data(contentsOf: url!) {
-          movieImageView.image = UIImage(data: data)
-        }
+        movieImageView.image = properties.imageMovie
     }
     
     private func setupViews() {
