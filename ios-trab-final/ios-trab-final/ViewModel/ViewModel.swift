@@ -66,12 +66,12 @@ class ViewModel {
     }
     
     func getDetailsProps(moviePerID: MovieDataDetails) -> DetailViewProps {
-        let rateConverted = String(moviePerID.voteAverage)
-        guard let safeImage = imageConverted(posterPath: moviePerID.posterPath) else { return DetailViewProps() }
+        let rateConverted = String(moviePerID.voteAverage ?? 0.0)
+        guard let safeImage = imageConverted(posterPath: moviePerID.posterPath ?? "") else { return DetailViewProps() }
         return DetailViewProps(movieImg: safeImage,
-                               movieTitle: moviePerID.title,
-                               movieDesc: moviePerID.overview,
-                               movieYear: moviePerID.releaseDate,
+                               movieTitle: moviePerID.title ?? "",
+                               movieDesc: moviePerID.overview ?? "",
+                               movieYear: moviePerID.releaseDate ?? "",
                                movieRating: "\(rateConverted)/10")
     }
 }
